@@ -4,27 +4,33 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Seat {
+@Table(name="seats")
+public class Seat implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
+    @Column(name = "seat_id")
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "schedule_id")
     private Schedule schedule;
+
+    @Column(name = "studio_row")
     private int row;
+
+    @Column(name = "studio_column")
     private int column;
+
+    @Column(name = "reserved")
     private boolean reserved;
 
     // Constructors, getters, and setters omitted for brevity

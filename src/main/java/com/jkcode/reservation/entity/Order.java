@@ -3,51 +3,46 @@ package com.jkcode.reservation.entity;
 import com.jkcode.reservation.util.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Order {
+@Table(name="orders")
+public class Order implements Serializable {
     @Id
     @GeneratedValue
+    @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "film_id")
     private Film film;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "seat_id")
     private Seat seat;
 
+    @Column(name = "price")
     private double price;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private OrderStatus status;  // order status (pending, confirmed, etc.)
 
+    @Column(name = "deleted")
     private boolean deleted;
 }

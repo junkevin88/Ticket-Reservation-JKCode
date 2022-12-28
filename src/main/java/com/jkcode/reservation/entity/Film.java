@@ -1,15 +1,9 @@
 package com.jkcode.reservation.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 
@@ -18,20 +12,26 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Film {
+@Table(name="films")
+public class Film implements Serializable {
     @Id
     @GeneratedValue
+    @Column(name = "film_id")
     private Long id;
 
     @NonNull
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
     private String description;
 
     @Column(name = "release_date")
     private LocalDate releaseDate;
 
+    @Column(name = "duration")
     private int duration;
 
+    @Column(name = "deleted")
     private boolean deleted;
 }
