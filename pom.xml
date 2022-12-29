@@ -79,12 +79,12 @@
 <!--            <scope>test</scope>-->
 <!--        </dependency>-->
 
-        <!--		For h2 Database -->
-<!--        <dependency>-->
-<!--            <groupId>com.h2database</groupId>-->
-<!--            <artifactId>h2</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
+<!--        		For h2 Database-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- Spring JDBC Support -->
         <dependency>
