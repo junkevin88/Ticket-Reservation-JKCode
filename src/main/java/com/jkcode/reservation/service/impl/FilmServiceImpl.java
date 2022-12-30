@@ -4,7 +4,6 @@ import com.jkcode.reservation.entity.Film;
 import com.jkcode.reservation.repository.FilmRepository;
 import com.jkcode.reservation.service.FilmService;
 import com.jkcode.reservation.util.FilmNotFoundException;
-import com.jkcode.reservation.util.FilmNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
