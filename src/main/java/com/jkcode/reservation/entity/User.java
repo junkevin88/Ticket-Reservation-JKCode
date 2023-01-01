@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name="users")
+@Where(clause = "deleted is null")
 public class User implements Serializable {
     @Id
     @GeneratedValue
@@ -32,6 +34,9 @@ public class User implements Serializable {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "deleted")
+    private Boolean deleted;
 
     // Constructors, getters, and setters omitted for brevity
 }

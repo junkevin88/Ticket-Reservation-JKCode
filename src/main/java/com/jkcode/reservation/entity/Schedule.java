@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name="schedules")
+@Where(clause = "deleted is null")
 public class Schedule implements Serializable {
     @Id
     @GeneratedValue
@@ -31,5 +33,10 @@ public class Schedule implements Serializable {
     @Column(name = "end_time")
     private LocalDateTime endTime;
 
+
+    @Column(name = "deleted")
+    private boolean deleted;
     // Constructors, getters, and setters omitted for brevity
+
+
 }

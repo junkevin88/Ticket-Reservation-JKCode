@@ -1,6 +1,7 @@
 package com.jkcode.reservation.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name="films")
+@Where(clause = "deleted is null")
 public class Film implements Serializable {
     @Id
     @GeneratedValue

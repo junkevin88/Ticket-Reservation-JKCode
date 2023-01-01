@@ -3,6 +3,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name="seats")
+@Where(clause = "deleted is null")
 public class Seat implements Serializable {
     @Id
     @GeneratedValue
@@ -32,6 +34,9 @@ public class Seat implements Serializable {
 
     @Column(name = "reserved")
     private boolean reserved;
+
+    @Column(name = "deleted")
+    private boolean deleted;
 
     // Constructors, getters, and setters omitted for brevity
 }

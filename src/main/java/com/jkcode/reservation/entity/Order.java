@@ -4,6 +4,7 @@ import com.jkcode.reservation.util.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name="orders")
+@Where(clause = "deleted is null")
 public class Order implements Serializable {
     @Id
     @GeneratedValue
