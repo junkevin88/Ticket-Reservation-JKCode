@@ -5,10 +5,12 @@ import com.jkcode.reservation.repository.SeatRepository;
 import com.jkcode.reservation.service.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class SeatServiceImpl implements SeatService {
 
     private final SeatRepository seatRepository;

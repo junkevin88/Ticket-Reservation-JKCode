@@ -13,7 +13,6 @@ import java.util.List;
 
 
 @Service
-@Transactional
 public class FilmServiceImpl implements FilmService {
 
     private final FilmRepository filmRepository;
@@ -36,11 +35,6 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public Film update(Film film) {
         return filmRepository.save(film);
-    }
-
-    @Override
-    public void delete(Long id) {
-        filmRepository.deleteById(id);
     }
 
     @Override

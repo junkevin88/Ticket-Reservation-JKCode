@@ -25,11 +25,11 @@ public class OrderRepositoryTest {
     public void testFindByUserId() {
 
         // create user1 and save it to the database
-        User user1 = new User(1L, "John", "Doe", "john@example.com", "password");
+        User user1 = new User(1L, "John", "Doe", "john@example.com", "password", false);
         userRepository.save(user1);
 
         // create user2 and save it to the database
-        User user2 = new User(2L, "Jane", "Doe", "jane@example.com", "password");
+        User user2 = new User(2L, "Jane", "Doe", "jane@example.com", "password", false);
         userRepository.save(user2);
 
         // Save a few orders to the database

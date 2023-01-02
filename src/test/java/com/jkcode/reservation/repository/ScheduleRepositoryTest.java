@@ -34,9 +34,9 @@ public class ScheduleRepositoryTest {
         filmRepository.save(film2);
 
         LocalDateTime startTime = LocalDateTime.of(2022, 1, 1, 10, 0);
-        Schedule schedule1 = new Schedule(1L, film1, startTime, startTime.plusHours(2));
-        Schedule schedule2 = new Schedule(2L, film2, startTime.plusHours(3), startTime.plusHours(5));
-        Schedule schedule3 = new Schedule(3L, film2, startTime, startTime.plusHours(2));
+        Schedule schedule1 = new Schedule(1L, film1, startTime, startTime.plusHours(2), false);
+        Schedule schedule2 = new Schedule(2L, film2, startTime.plusHours(3), startTime.plusHours(5), false);
+        Schedule schedule3 = new Schedule(3L, film2, startTime, startTime.plusHours(2), false);
         scheduleRepository.save(schedule1);
         scheduleRepository.save(schedule2);
         scheduleRepository.save(schedule3);
